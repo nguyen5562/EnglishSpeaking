@@ -1,6 +1,7 @@
 "use client";
 import { useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
+import { toast } from "sonner";
 import { Mic, Square, Upload, Sparkles, Volume2, BookOpen, PenTool, Wind, ArrowRight } from "lucide-react";
 
 interface EvaluationResult {
@@ -41,7 +42,7 @@ export default function Home() {
       setIsRecording(true);
     } catch (err) {
       console.error("Error accessing microphone:", err);
-      alert("Không thể truy cập Micro! Hãy đảm bảo bạn đã cấp quyền.");
+      toast.error("Không thể truy cập Micro! Hãy đảm bảo bạn đã cấp quyền.");
     }
   };
 
@@ -75,7 +76,7 @@ export default function Home() {
       });
       const data = await response.json();
       if (data.error) {
-        alert("Lỗi: " + data.error);
+        toast.error("Lỗi: " + data.error);
       } else {
         let parsedResult = data.result;
         try {
@@ -88,7 +89,7 @@ export default function Home() {
       }
     } catch (error) {
       console.error("Lỗi khi gửi API:", error);
-      alert("Có lỗi xảy ra khi chấm bài. Xem console để biết chi tiết.");
+      toast.error("Có lỗi xảy ra khi chấm bài. Vui lòng thử lại sau.");
     } finally {
       setIsLoading(false);
     }

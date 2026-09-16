@@ -46,9 +46,24 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ result: responseText });
   } catch (error: any) {
     console.error("Lỗi Server:", error);
+    
+    let errorMessage = error.message || "Đã xảy ra lỗi hệ thống";
+    let statusCode = 500;
+
+    // Bắt lỗi hết Quota (429 Too Many Requests / ResourceExhausted)
+    if (
+      error?.status === 429 || 
+      errorMessage.includes("429") || 
+      errorMessage.toLowerCase().includes("quota") || 
+      errorMessage.includes("ResourceExhausted")
+    ) {
+      errorMessage = "Hệ thống AI hiện đang quá tải hoặc hết lượt sử dụng (Quota Exceeded). Vui lòng thử lại sau ít phút.";
+      statusCode = 429;
+    }
+
     return NextResponse.json(
-      { error: error.message || "Đã xảy ra lỗi hệ thống" },
-      { status: 500 }
+      { error: errorMessage },
+      { status: statusCode }
     );
   }
 }
