@@ -107,7 +107,7 @@ export default function Home() {
       </div>
 
       {/* Macro Typography */}
-      <h1 className="animate-reveal delay-100 text-6xl md:text-[5rem] lg:text-[6.5rem] font-black text-center text-slate-900 tracking-tighter max-w-4xl leading-[0.95] drop-shadow-sm">
+      <h1 className="animate-reveal delay-100 text-5xl sm:text-6xl md:text-[5rem] lg:text-[6.5rem] font-black text-center text-slate-900 tracking-tighter max-w-4xl leading-[0.95] drop-shadow-sm">
         Speak with <br/><span className="text-transparent bg-clip-text bg-gradient-to-br from-indigo-500 to-rose-400">absolute</span> clarity.
       </h1>
       
@@ -116,8 +116,8 @@ export default function Home() {
       </p>
 
       {/* Main Interaction Card (Extreme Double-Bezel) */}
-      <div className="animate-reveal delay-300 mt-20 w-full max-w-2xl bg-black/[0.02] p-2.5 rounded-[3.5rem] shadow-[0_32px_64px_-12px_rgba(79,70,229,0.1)] relative z-10 backdrop-blur-xl border border-white/50">
-        <div className="bg-white/80 backdrop-blur-md rounded-[calc(3.5rem-0.625rem)] shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_4px_12px_rgba(0,0,0,0.02)] border border-white p-10 md:p-14 flex flex-col items-center gap-10">
+      <div className="animate-reveal delay-300 mt-16 md:mt-20 w-full max-w-2xl bg-black/[0.02] p-2.5 rounded-[3.5rem] shadow-[0_32px_64px_-12px_rgba(79,70,229,0.1)] relative z-10 backdrop-blur-xl border border-white/50">
+        <div className="bg-white/80 backdrop-blur-md rounded-[calc(3.5rem-0.625rem)] shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_4px_12px_rgba(0,0,0,0.02)] border border-white p-8 md:p-14 flex flex-col items-center gap-10">
           
           <div className="flex flex-col sm:flex-row gap-5 w-full justify-center">
             {!isRecording ? (
@@ -182,13 +182,13 @@ export default function Home() {
 
       {/* Results Asymmetrical Bento */}
       {result && typeof result === "object" ? (
-        <div className="mt-32 w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
+        <div className="mt-20 md:mt-32 w-full max-w-6xl grid grid-cols-1 md:grid-cols-12 gap-8 relative z-10">
           
           {/* Overall Band - Col Span 5 */}
           <div className="md:col-span-5 bg-black/[0.02] p-2.5 rounded-[3.5rem] animate-reveal delay-100 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.03)] border border-white/50">
-            <div className="bg-white/80 backdrop-blur-md h-full rounded-[calc(3.5rem-0.625rem)] shadow-[inset_0_2px_4px_rgba(255,255,255,1)] border border-white p-12 flex flex-col justify-center items-center text-center transition-transform hover:-translate-y-2 duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
+            <div className="bg-white/80 backdrop-blur-md h-full rounded-[calc(3.5rem-0.625rem)] shadow-[inset_0_2px_4px_rgba(255,255,255,1)] border border-white p-8 md:p-12 flex flex-col justify-center items-center text-center transition-transform hover:-translate-y-2 duration-700 ease-[cubic-bezier(0.32,0.72,0,1)]">
               <h2 className="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-extrabold mb-6">Overall Band</h2>
-              <div className="text-[9rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-indigo-500 to-indigo-900 drop-shadow-sm">{result.overall}</div>
+              <div className="text-[7rem] md:text-[9rem] leading-none font-black text-transparent bg-clip-text bg-gradient-to-b from-indigo-500 to-indigo-900 drop-shadow-sm">{result.overall}</div>
               <p className="text-slate-500 mt-10 text-[17px] leading-relaxed font-medium">{result.summary}</p>
             </div>
           </div>
@@ -251,8 +251,8 @@ export default function Home() {
           </div>
         </div>
       ) : result && typeof result === "string" ? (
-        <div className="mt-32 w-full max-w-4xl bg-black/[0.02] p-2.5 rounded-[3.5rem] animate-reveal delay-100">
-          <div className="bg-white/80 backdrop-blur-md rounded-[calc(3.5rem-0.625rem)] shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_12px_32px_rgba(0,0,0,0.04)] border border-white p-14 prose prose-lg prose-slate max-w-none prose-headings:font-black">
+        <div className="mt-20 md:mt-32 w-full max-w-4xl bg-black/[0.02] p-2.5 rounded-[3.5rem] animate-reveal delay-100">
+          <div className="bg-white/80 backdrop-blur-md rounded-[calc(3.5rem-0.625rem)] shadow-[inset_0_2px_4px_rgba(255,255,255,1),0_12px_32px_rgba(0,0,0,0.04)] border border-white p-8 md:p-14 prose prose-lg prose-slate max-w-none prose-headings:font-black">
             <ReactMarkdown>{result}</ReactMarkdown>
           </div>
         </div>
