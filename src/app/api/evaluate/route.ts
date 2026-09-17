@@ -44,15 +44,19 @@ export async function POST(req: NextRequest) {
     const responseText = result.response.text();
 
     return NextResponse.json({ result: responseText });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Lỗi Server:", error);
     
-    let errorMessage = error.message || "Đã xảy ra lỗi hệ thống";
+    let errorMessage = "Đã xảy ra lỗi hệ thống";
+    if (error instanceof Error) {
+      errorMessage = error.message;
+    }
     let statusCode = 500;
 
+    const errObj = error as Record<string, unknown>;
     // Bắt lỗi hết Quota (429 Too Many Requests / ResourceExhausted)
     if (
-      error?.status === 429 || 
+      errObj?.status === 429 || 
       errorMessage.includes("429") || 
       errorMessage.toLowerCase().includes("quota") || 
       errorMessage.includes("ResourceExhausted")

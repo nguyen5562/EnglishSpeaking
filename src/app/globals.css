@@ -1,38 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #EEF2FF;
-  --foreground: #1E1B4B;
+  /* Neutrals */
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+  --surface: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --border: #E2E8F0;
+
+  /* Primary Brand */
   --primary: #4F46E5;
-  --primary-on: #FFFFFF;
-  --secondary: #818CF8;
-  --secondary-on: #0F172A;
-  --accent: #EA580C;
-  --accent-on: #000000;
-  --card: #FFFFFF;
-  --border: #C7D2FE;
-  
-  --font-baloo: 'Baloo 2', sans-serif;
+  --primary-hover: #4338CA;
+  --primary-active: #3730A3;
+  --secondary: #38BDF8;
+
+  /* Semantic */
+  --success: #10B981;
+  --success-soft: #D1FAE5;
+  --error: #F43F5E;
+  --error-soft: #FFE4E6;
+  --warning: #F59E0B;
+  --info: #3B82F6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  
   --color-primary: var(--primary);
-  --color-primary-on: var(--primary-on);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
   --color-secondary: var(--secondary);
-  --color-accent: var(--accent);
-  --color-card: var(--card);
+  
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-error: var(--error);
+  --color-error-soft: var(--error-soft);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
   --color-border: var(--border);
-  --font-sans: var(--font-baloo);
+
+  /* Box Shadows - Claymorphism */
+  --shadow-clay-1: 4px 4px 10px rgba(0,0,0,0.03), inset -2px -2px 6px rgba(0,0,0,0.03), inset 2px 2px 6px rgba(255,255,255,0.9);
+  --shadow-clay-2: 6px 6px 16px rgba(0,0,0,0.06), inset -3px -3px 8px rgba(0,0,0,0.04), inset 3px 3px 8px rgba(255,255,255,1);
+  --shadow-clay-3: 0 8px 20px rgba(79, 70, 229, 0.25), inset -3px -3px 8px rgba(0,0,0,0.15), inset 3px 3px 8px rgba(255,255,255,0.25);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @keyframes reveal {
